@@ -1,5 +1,5 @@
 {
-  "name": "use-react",
+  "name": "use-react-hooks-in-vue",
   "version": "0.1.0",
   "description": "React-like hooks (useState, useCallback, useRef, useEffect, useMemo) implemented with Vue 3 Composition API.",
   "type": "module",
