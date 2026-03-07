@@ -96,7 +96,7 @@ console.log(sorted.value) // [1, 2, 3]
 
 ### `useCallback`
 
-Returns a memoized callback (`Ref<T>`) that updates only when dependencies change. Equivalent to `useMemo(() => fn, deps)`.
+Returns a stable, callable function that invokes the memoized callback. Use it like React: call directly or pass to children — no `.value` needed.
 
 ```ts
 import { useCallback } from 'use-react'
@@ -108,7 +108,8 @@ const increment = useCallback(() => {
   count.value++
 }, [])
 
-increment.value() // invoke via .value
+increment()                    // call directly
+<button onClick={increment} /> // or pass as handler
 ```
 
 ## Deps Type

@@ -146,30 +146,30 @@ describe('useMemo', () => {
 })
 
 describe('useCallback', () => {
-  it('should return the callback in a ref', () => {
+  it('should return a callable function (no .value needed)', () => {
     const fn = () => 'hello'
     const memoized = useCallback(fn, [])
-    expect(memoized.value()).toBe('hello')
+    expect(memoized()).toBe('hello')
   })
 
   it('should update when deps change', async () => {
     const dep = ref(0)
     const memoized = useCallback(() => dep.value * 2, [dep])
 
-    expect(memoized.value()).toBe(0)
+    expect(memoized()).toBe(0)
 
     dep.value = 5
     await nextTick()
-    expect(memoized.value()).toBe(10)
+    expect(memoized()).toBe(10)
   })
 
-  it('should preserve callback reference when deps do not change', async () => {
+  it('should preserve returned function reference when deps do not change', async () => {
     const dep = ref(0)
     const memoized = useCallback(() => dep.value, [dep])
 
-    const firstRef = memoized.value
+    const firstRef = memoized
     await nextTick()
-    expect(memoized.value).toBe(firstRef)
+    expect(memoized).toBe(firstRef)
   })
 })
 
