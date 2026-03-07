@@ -2,8 +2,6 @@
   "name": "use-react-hooks-in-vue",
   "version": "0.1.0",
   "description": "React-like hooks (useState, useCallback, useRef, useEffect, useMemo) implemented with Vue 3 Composition API.",
-  "type": "module",
-  "license": "MIT",
   "homepage": "https://github.com/betterhyq/use-react-hooks-in-vue#readme",
   "bugs": {
     "url": "https://github.com/betterhyq/use-react-hooks-in-vue/issues"
@@ -12,26 +10,25 @@
     "type": "git",
     "url": "git+https://github.com/betterhyq/use-react-hooks-in-vue.git"
   },
+  "license": "MIT",
   "author": "YONGQI <betterhyq@qq.com>",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
-  "publishConfig": {
-    "access": "public"
-  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
+    "release": "bumpp && npm publish",
     "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "release": "bumpp && npm publish"
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "25.3.5",
@@ -43,5 +40,8 @@
   },
   "peerDependencies": {
     "vue": "^3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
