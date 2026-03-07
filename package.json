@@ -1,6 +1,6 @@
 {
   "name": "use-react-hooks-in-vue",
-  "version": "0.1.0",
+  "version": "1.0.0-beta.1",
   "description": "React-like hooks (useState, useCallback, useRef, useEffect, useMemo) implemented with Vue 3 Composition API.",
   "homepage": "https://github.com/betterhyq/use-react-hooks-in-vue#readme",
   "bugs": {
