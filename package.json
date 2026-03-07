@@ -4,15 +4,15 @@
   "description": "React-like hooks (useState, useCallback, useRef, useEffect, useMemo) implemented with Vue 3 Composition API.",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://github.com/author/library#readme",
+  "homepage": "https://github.com/betterhyq/use-react-hooks-in-vue#readme",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/betterhyq/use-react-hooks-in-vue/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/betterhyq/use-react-hooks-in-vue.git"
   },
-  "author": "Author Name <author.name@mail.com>",
+  "author": "YONGQI <betterhyq@qq.com>",
   "files": [
     "dist"
   ],
@@ -34,14 +34,14 @@
     "release": "bumpp && npm publish"
   },
   "devDependencies": {
-    "@types/node": "^22.15.17",
-    "bumpp": "^10.1.0",
-    "tsdown": "^0.11.9",
-    "typescript": "^5.8.3",
-    "vitest": "^3.1.3",
-    "vue": "^3.5.29"
+    "@types/node": "25.3.5",
+    "bumpp": "10.4.1",
+    "tsdown": "0.21.0",
+    "typescript": "5.9.3",
+    "vitest": "4.0.18",
+    "vue": "3.5.29"
   },
   "peerDependencies": {
-    "vue": "^3.5.29"
+    "vue": "^3"
   }
 }
