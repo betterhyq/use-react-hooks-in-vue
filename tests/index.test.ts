@@ -3,26 +3,27 @@ import { ref, nextTick, reactive } from 'vue'
 import { useState, useRef, useEffect, useMemo, useCallback } from '../src'
 
 describe('useState', () => {
-  it('should initialize with a direct value', () => {
+  it('should initialize with a direct value (no .value needed)', () => {
     const [state, _setState] = useState(0)
+    expect(Number(state)).toBe(0)
     expect(state.value).toBe(0)
   })
 
   it('should initialize with a function (lazy init)', () => {
     const [state] = useState(() => 42)
-    expect(state.value).toBe(42)
+    expect(Number(state)).toBe(42)
   })
 
   it('should update state with a direct value', () => {
     const [state, setState] = useState(0)
     setState(5)
-    expect(state.value).toBe(5)
+    expect(state + 0).toBe(5)
   })
 
   it('should update state with a functional update', () => {
     const [state, setState] = useState(10)
     setState((prev) => prev + 5)
-    expect(state.value).toBe(15)
+    expect(state + 0).toBe(15)
   })
 
   it('should handle multiple updates', () => {
@@ -30,19 +31,29 @@ describe('useState', () => {
     setState((prev) => prev + 1)
     setState((prev) => prev + 1)
     setState((prev) => prev + 1)
-    expect(state.value).toBe(3)
+    expect(state + 0).toBe(3)
   })
 
-  it('should work with object state', () => {
+  it('should work with object state (direct access without .value)', () => {
     const [state, setState] = useState({ count: 0, name: 'test' })
     setState({ count: 1, name: 'updated' })
+    expect(state.count).toBe(1)
+    expect(state.name).toBe('updated')
     expect(state.value).toEqual({ count: 1, name: 'updated' })
   })
 
   it('should work with string state', () => {
     const [state, setState] = useState('hello')
     setState('world')
-    expect(state.value).toBe('world')
+    expect(String(state)).toBe('world')
+  })
+
+  it('should work with primitive coercion (state + 1, no .value needed)', () => {
+    const [state, setState] = useState(10)
+    expect(state + 5).toBe(15)
+    setState(20)
+    expect(Number(state)).toBe(20)
+    expect(String(state)).toBe('20')
   })
 })
 
